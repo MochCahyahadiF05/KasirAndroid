@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">KasirBeras</string>
-    <string name="title_produk">Produk</string>
-    <string name="title_penjualan">Penjualan</string>
-    <string name="title_pengeluaran">Pengeluaran</string>
+    <string name="title_product">Produk</string>
+    <string name="title_cart">Keranjang</string>
+    <string name="title_transaksi">Transaksi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cari_produk">Cari produk...</string>
+    <string name="belum_ada_produk">Belum ada produk</string>
+    <string name="tambah_produk_pertama_anda">Tambah produk pertama Anda</string>
+    <string name="add_product">tambah produk</string>
 </resources>
