@@ -36,7 +36,7 @@ class TransactionViewModel : ViewModel() {
 
     fun loadTransactions() {
         _isLoading.value = true
-        firestoreHelper.getAllTransactions { transactions ->
+        firestoreHelper.getAllTransactionsRealtime { transactions ->
             allTransactions = transactions
             _transactions.value = transactions
             _isLoading.value = false

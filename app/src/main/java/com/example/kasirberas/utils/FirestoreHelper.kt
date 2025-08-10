@@ -50,15 +50,19 @@ class FirestoreHelper {
             .addOnFailureListener { onComplete(false) }
     }
 
-    fun getAllTransactions(onResult: (List<Transaction>) -> Unit) {
+    fun getAllTransactionsRealtime(onResult: (List<Transaction>) -> Unit) {
         db.collection("transactions")
             .orderBy("transactionDate", Query.Direction.DESCENDING)
-            .get()
-            .addOnSuccessListener { documents ->
-                val transactions = documents.mapNotNull { it.toObject(Transaction::class.java) }
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    onResult(emptyList())
+                    return@addSnapshotListener
+                }
+                val transactions = snapshot?.documents?.mapNotNull {
+                    it.toObject(Transaction::class.java)
+                } ?: emptyList()
                 onResult(transactions)
             }
-            .addOnFailureListener { onResult(emptyList()) }
     }
 
     // Expenses
