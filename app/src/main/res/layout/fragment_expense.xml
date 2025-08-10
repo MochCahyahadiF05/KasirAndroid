@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,21 +28,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:baselineAligned="false">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Pengeluaran"
+                        android:text="@string/expenses"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="Pengeluaran" />
 
                     <Spinner
                         android:id="@+id/spinnerFilter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp" />
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/filter_expenses" />
 
                 </LinearLayout>
 
@@ -49,47 +53,52 @@
                     android:id="@+id/textTotalExpense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Total: Rp 0"
+                    android:text="@string/default_total_expense"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/design_default_color_primary"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    tools:text="Total: Rp 0" />
 
                 <!-- Status Summary -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="12dp">
+                    android:layout_marginTop="12dp"
+                    android:baselineAligned="false">
 
                     <TextView
                         android:id="@+id/textBelumBayar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Belum Bayar: Rp 0"
+                        android:text="@string/default_unpaid"
                         android:textSize="12sp"
-                        android:textColor="@android:color/holo_red_dark" />
+                        android:textColor="@android:color/holo_red_dark"
+                        tools:text="Belum Bayar: Rp 0" />
 
                     <TextView
                         android:id="@+id/textCicil"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Cicil: Rp 0"
+                        android:text="@string/default_installment"
                         android:textSize="12sp"
                         android:textColor="@android:color/holo_orange_dark"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        tools:text="Cicil: Rp 0" />
 
                     <TextView
                         android:id="@+id/textLunas"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Lunas: Rp 0"
+                        android:text="@string/default_paid"
                         android:textSize="12sp"
                         android:textColor="@android:color/holo_green_dark"
-                        android:gravity="end" />
+                        android:gravity="end"
+                        tools:text="Lunas: Rp 0" />
 
                 </LinearLayout>
 
@@ -104,6 +113,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:padding="8dp"
+            android:paddingBottom="80dp"
             android:clipToPadding="false" />
 
         <!-- Empty State -->
@@ -120,36 +130,41 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:src="@drawable/ic_money_off_24"
-                android:alpha="0.3" />
+                android:alpha="0.3"
+                android:contentDescription="@string/no_expenses_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Belum ada pengeluaran"
+                android:text="@string/no_expenses"
                 android:textSize="18sp"
                 android:textColor="@android:color/darker_gray"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                tools:text="Belum ada pengeluaran" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tambah pengeluaran pertama Anda"
+                android:text="@string/add_first_expense"
                 android:textSize="14sp"
                 android:textColor="@android:color/darker_gray"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                tools:text="Tambah pengeluaran pertama Anda" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <!-- FAB Add Expense -->
+    <!-- FAB Add Expense - Positioned above navigation bar -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddExpense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="80dp"
         android:src="@drawable/ic_add_24"
+        android:contentDescription="@string/add_expense"
         app:tint="@android:color/white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

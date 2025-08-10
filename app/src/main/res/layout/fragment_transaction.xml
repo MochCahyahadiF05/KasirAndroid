@@ -2,6 +2,7 @@
 <!-- fragment_transaction.xml -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,21 +23,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:baselineAligned="false">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Laporan Penjualan"
+                    android:text="@string/sales_report"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
+                    android:layout_marginBottom="12dp"
+                    tools:text="Laporan Penjualan" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:weightSum="2"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -47,19 +51,21 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Total Penjualan"
+                            android:text="@string/total_sales"
                             android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="@android:color/darker_gray"
+                            tools:text="Total Penjualan" />
 
                         <TextView
                             android:id="@+id/textDailySales"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp 0"
+                            android:text="@string/default_price"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="@color/design_default_color_primary"
-                            android:layout_marginTop="4dp" />
+                            android:layout_marginTop="4dp"
+                            tools:text="Rp 0" />
 
                     </LinearLayout>
 
@@ -72,19 +78,21 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Jumlah Transaksi"
+                            android:text="@string/transaction_count"
                             android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="@android:color/darker_gray"
+                            tools:text="Jumlah Transaksi" />
 
                         <TextView
                             android:id="@+id/textTotalTransactions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0 transaksi"
+                            android:text="@string/default_transaction_count"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="@android:color/black"
-                            android:layout_marginTop="4dp" />
+                            android:layout_marginTop="4dp"
+                            tools:text="0 transaksi" />
 
                     </LinearLayout>
 
@@ -111,38 +119,43 @@
                     android:id="@+id/chipToday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hari Ini"
+                    android:text="@string/today"
                     style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:checked="true" />
+                    android:checked="true"
+                    tools:text="Hari Ini" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipThisWeek"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Minggu Ini"
-                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+                    android:text="@string/this_week"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    tools:text="Minggu Ini" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipThisMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bulan Ini"
-                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+                    android:text="@string/this_month"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    tools:text="Bulan Ini" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipAll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Semua"
-                    style="@style/Widget.MaterialComponents.Chip.Filter" />
+                    android:text="@string/all"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    tools:text="Semua" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipCustom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Custom"
+                    android:text="@string/custom"
                     style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    tools:text="Custom" />
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -164,6 +177,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:padding="8dp"
+            android:paddingBottom="80dp"
             android:clipToPadding="false" />
 
         <!-- Empty State -->
@@ -180,36 +194,48 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:src="@drawable/ic_receipt_24"
-                android:alpha="0.3" />
+                android:alpha="0.3"
+                android:contentDescription="@string/no_transaction_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Belum ada transaksi"
+                android:text="@string/no_transactions"
                 android:textSize="18sp"
                 android:textColor="@android:color/darker_gray"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                tools:text="Belum ada transaksi" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Transaksi akan muncul di sini"
+                android:text="@string/transactions_will_appear_here"
                 android:textSize="14sp"
                 android:textColor="@android:color/darker_gray"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                tools:text="Transaksi akan muncul di sini" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <!-- FAB Filter -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabFilter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_filter_list_24"
-        app:tint="@android:color/white" />
+    <!-- FAB Filter - Alternative positioning -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="80dp"
+            android:src="@drawable/ic_filter_list_24"
+            android:contentDescription="@string/filter_transactions"
+            android:visibility="visible"
+            app:tint="@android:color/white" />
+
+    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
