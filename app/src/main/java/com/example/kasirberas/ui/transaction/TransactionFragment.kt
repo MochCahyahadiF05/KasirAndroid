@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,7 +27,6 @@ class TransactionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
-
         _binding = FragmentTransactionBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -42,11 +40,13 @@ class TransactionFragment : Fragment() {
         setupDateFilters()
     }
 
+    /**
+     * Siapkan RecyclerView untuk menampilkan transaksi
+     */
     private fun setupRecyclerView() {
         transactionAdapter = TransactionAdapter(
             onItemClick = { transaction ->
-                // TODO: Show transaction details
-                Toast.makeText(context, "Detail transaksi: ${transaction.id}", Toast.LENGTH_SHORT).show()
+                // TODO: nanti ganti dengan pindah ke halaman detail transaksi
             }
         )
 
@@ -56,8 +56,12 @@ class TransactionFragment : Fragment() {
         }
     }
 
+    /**
+     * Observe data dari ViewModel
+     * filteredTransactions dipakai supaya list ikut terfilter
+     */
     private fun setupObservers() {
-        transactionViewModel.transactions.observe(viewLifecycleOwner) { transactions ->
+        transactionViewModel.filteredTransactions.observe(viewLifecycleOwner) { transactions ->
             transactionAdapter.submitList(transactions)
 
             val isEmpty = transactions.isEmpty()
@@ -78,6 +82,9 @@ class TransactionFragment : Fragment() {
         }
     }
 
+    /**
+     * Atur event klik untuk filter dan tombol lainnya
+     */
     private fun setupClickListeners() {
         binding.fabFilter.setOnClickListener {
             showDateFilterDialog()
@@ -100,12 +107,17 @@ class TransactionFragment : Fragment() {
         }
     }
 
+    /**
+     * Set filter default ke "Hari Ini"
+     */
     private fun setupDateFilters() {
-        // Set default to today
         binding.chipToday.isChecked = true
         transactionViewModel.filterByToday()
     }
 
+    /**
+     * Tampilkan dialog pilih tanggal custom
+     */
     private fun showDateFilterDialog() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)

@@ -84,4 +84,7 @@ class ProductViewModel : ViewModel() {
             _filteredProducts.value = filtered
         }
     }
+    fun clearMessage() {
+        _message.value = ""
+    }
 }

@@ -83,7 +83,11 @@ class ProductFragment : Fragment() {
         }
 
         productViewModel.message.observe(viewLifecycleOwner) { message ->
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+            if (!message.isNullOrEmpty()) {
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                productViewModel.clearMessage()
+            }
         }
     }
 
