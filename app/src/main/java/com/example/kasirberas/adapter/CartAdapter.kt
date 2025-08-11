@@ -56,7 +56,12 @@ class CartAdapter(
             buttonDecrease.setOnClickListener {
                 if (cartItem.quantity > 1) {
                     val newQuantity = cartItem.quantity - 1
+                    // Update tampilan quantity
                     textQuantity.text = newQuantity.toString()
+                    // ✅ Update tampilan subtotal
+                    val newSubtotal = cartItem.product.price * newQuantity
+                    textSubtotal.text = CalculatorHelper.formatCurrency(newSubtotal)
+                    // Kirim ke parent untuk update data
                     onQuantityChange(cartItem.id, newQuantity)
                 }
             }
@@ -64,7 +69,12 @@ class CartAdapter(
             // Tombol plus
             buttonIncrease.setOnClickListener {
                 val newQuantity = cartItem.quantity + 1
+                // Update tampilan quantity
                 textQuantity.text = newQuantity.toString()
+                // ✅ Update tampilan subtotal
+                val newSubtotal = cartItem.product.price * newQuantity
+                textSubtotal.text = CalculatorHelper.formatCurrency(newSubtotal)
+                // Kirim ke parent untuk update data
                 onQuantityChange(cartItem.id, newQuantity)
             }
 

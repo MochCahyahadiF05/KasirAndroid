@@ -37,9 +37,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/design_default_color_primary" />
-
         </LinearLayout>
-
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Payment Method -->
@@ -72,7 +70,6 @@
             android:text="Transfer"
             android:textSize="14sp"
             android:padding="8dp" />
-
     </RadioGroup>
 
     <!-- Cash Payment Layout -->
@@ -82,6 +79,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Row input bayar + tombol PAS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -98,21 +96,19 @@
                 android:layout_marginEnd="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextPaidAmount"
+                    android:id="@+id/etPaymentAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonExactAmount"
                 android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                android:text="Pas"
+                android:layout_height="match_parent"
+                android:text="PAS"
                 android:textSize="12sp"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
-
         </LinearLayout>
 
         <!-- Change Amount -->
@@ -124,7 +120,6 @@
             android:background="@color/design_default_color_surface">
 
             <TextView
-                android:id="@+id/textChangeLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -133,15 +128,38 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textChangeAmount"
+                android:id="@+id/tvChangeAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rp 0"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
-
     </LinearLayout>
 
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="BATAL"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmPayment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="KONFIRMASI PEMBAYARAN"
+            android:layout_marginStart="8dp"
+            style="@style/Widget.MaterialComponents.Button" />
+    </LinearLayout>
 </LinearLayout>

@@ -82,4 +82,14 @@ dependencies {
     // Permission Handler
     implementation ("com.karumi:dexter:6.2.3")
 
+    // Print support - TAMBAHAN BARU
+    implementation("androidx.print:print:1.0.0")
+
+    // File operations - TAMBAHAN BARU
+    implementation("androidx.documentfile:documentfile:1.0.1")
+
+    // Permission handling - TAMBAHAN BARU
+    implementation("androidx.activity:activity-ktx:1.8.2")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+
 }

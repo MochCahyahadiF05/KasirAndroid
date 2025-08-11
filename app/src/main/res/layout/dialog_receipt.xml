@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <!-- Header Dialog -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/design_default_color_primary">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Struk Pembayaran"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white" />
+
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Tutup" />
+
+    </LinearLayout>
+
+    <!-- Scroll View untuk Struk -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:maxHeight="600dp"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:id="@+id/llReceiptContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/design_default_color_surface">
+
+        <!-- Button Save as Image -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveImage"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:text="Simpan\nGambar"
+            android:textSize="12sp"
+            android:drawableTop="@android:drawable/ic_menu_save"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:minHeight="60dp" />
+
+        <!-- Button Download -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDownload"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:text="Download"
+            android:textSize="12sp"
+            android:drawableTop="@android:drawable/stat_sys_download"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:minHeight="60dp" />
+
+        <!-- Button Print -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPrint"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="Print"
+            android:textSize="12sp"
+            android:drawableTop="@android:drawable/ic_menu_share"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:minHeight="60dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
